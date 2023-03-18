@@ -4,10 +4,11 @@ const usersCollection = require('./user.mongo')
 
 const userRegister = async (user) => {
     const isUserExist = usersCollection.findOne({email: user.email})
-    
-    if(isUserExist) {
-        return;
-    }
+    // console.log(isUserExist);
+    // if(isUserExist) {
+    //     console.log('exist');
+    //     return;
+    // }
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = bcrypt.hashSync(user.password, salt)
@@ -43,7 +44,10 @@ const userLogin = async (user) => {
     const isPasswordCorrect = await bcrypt.compare(user.password, loggingUser.password)
     
     if(isPasswordCorrect) {
-        return jwt.sign({id: loggingUser._id}, process.env.CLIENT_SECRET, {expiresIn: '10m'})
+        return {
+            token: jwt.sign({id: loggingUser._id}, process.env.CLIENT_SECRET, {expiresIn: '10m'}),
+            user: loggingUser
+        }
     }
 }
 
@@ -66,8 +70,13 @@ const userUpdate = async (user) => {
     return updateUser;
 }
 
+const getUser = async (user) => {
+    return await usersCollection.findById(user.id);
+}
+
 module.exports = {
     userRegister,
     userLogin,
-    userUpdate
+    userUpdate,
+    getUser
 }

@@ -1,0 +1,59 @@
+.authentication {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.authentication__inner-container {
+  display: flex;
+  justify-content: space-around;
+  max-width: 900px;
+  width: fit-content;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 auto;
+}
+
+.authentication__inner-container .signup__container, .authentication__inner-container .signin__container {
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0 40px;
+  background-color: transparent;
+  color: #d2d2d2;
+}
+
+.authentication__inner-container .signup__container h1, .authentication__inner-container .signin__container h1 {
+  font-family: 'SF-Semibold';
+}
+
+.authentication__inner-container .signup__container .form, .authentication__inner-container .signin__container .form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .authentication__inner-container {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 1024px) {
+  .authentication__inner-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .authentication__inner-container {
+    align-items: center;
+    width: 100%;
+  }
+  .authentication__inner-container .signup__container, .authentication__inner-container .signin__container {
+    width: 100%;
+  }
+}

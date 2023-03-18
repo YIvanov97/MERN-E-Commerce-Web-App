@@ -1,0 +1,26 @@
+@import './colors.scss';
+
+//Animations
+
+@mixin labelAnimated {
+    top: 0;
+    left: 0;
+    color: $text-white;
+    font-size: 0.8rem;
+    font-family: 'SF-Semibold';
+}
+
+
+//Media Queries
+
+@mixin Desktop {
+    @media (min-width: 1024px) { @content; }
+}
+
+@mixin Tablet {
+    @media (max-width: 1024px) { @content; }
+}
+
+@mixin Phone {
+    @media (max-width: 600px) { @content; }
+}

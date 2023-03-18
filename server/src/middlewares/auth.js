@@ -10,12 +10,11 @@ module.exports = (req, res, next) => {
 
     jwt.verify(token, process.env.CLIENT_SECRET, (err, decoded) => {
         if (err) {
-            res.clearCookie(process.env.COOKIE_NAME)
-            return res.status(403).json('Invalid token!')
-        } else {
-            req.user = decoded;
+          res.clearCookie(process.env.COOKIE_NAME)
+          return res.status(403).json('Invalid token!')
         }
-    })
+        req.user = decoded
+      })
 
     next();
 }

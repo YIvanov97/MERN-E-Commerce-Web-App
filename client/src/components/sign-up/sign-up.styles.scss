@@ -1,0 +1,13 @@
+.signup__container {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 700ms ease;
+}
+
+.signup--show {
+    display: flex;
+    visibility: visible;
+    position: relative;
+    opacity: 1;
+}

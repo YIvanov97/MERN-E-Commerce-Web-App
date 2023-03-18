@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb7a9d4b.css",
+    "main.js": "/static/js/main.23fe390e.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/SF-Semibold.otf": "/static/media/SF-Semibold.ee1672201df75878f69b.otf",
+    "static/media/SF-Regular.otf": "/static/media/SF-Regular.2ecae33cadfb51556da5.otf",
+    "static/media/SF-Light.otf": "/static/media/SF-Light.ff3e1aab377e03835855.otf",
+    "index.html": "/index.html",
+    "main.bb7a9d4b.css.map": "/static/css/main.bb7a9d4b.css.map",
+    "main.23fe390e.js.map": "/static/js/main.23fe390e.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb7a9d4b.css",
+    "static/js/main.23fe390e.js"
+  ]
+}

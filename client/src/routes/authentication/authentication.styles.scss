@@ -1,0 +1,63 @@
+@import '../../styles/colors.scss';
+@import'../../styles/mixins.scss';
+
+.authentication {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    &__inner-container {
+        display: flex;
+        justify-content: space-around;
+        max-width: 900px;
+        width: fit-content;
+        padding: 30px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.1);
+        margin: 0 auto;
+        
+        .signup__container, .signin__container {
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            margin: 0 40px;
+            background-color: transparent;
+            color: $text-white;
+            
+            h1 {
+                font-family: 'SF-Semibold';
+            }
+            
+            .form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    }
+}
+
+@include Desktop {
+    .authentication__inner-container {
+        flex-direction: row;
+    }
+}
+
+@include Tablet {
+    .authentication__inner-container {
+        flex-direction: column;
+    }
+}
+
+@include Phone {
+    .authentication__inner-container {
+        align-items: center;
+        width: 100%;
+
+        .signup__container, .signin__container {
+            width: 100%;
+        }
+    }
+}
