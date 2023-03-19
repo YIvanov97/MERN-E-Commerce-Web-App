@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'SF-Semibold';
+  src: url("../assets/fonts/SF-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'SF-Regular';
+  src: url("../assets/fonts/SF-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'SF-Light';
+  src: url("../assets/fonts/SF-Light.otf") format("opentype");
+}
+
+#revert-banner {
+  box-shadow: 0px -25px 15px -10px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}

@@ -1,3 +1,5 @@
+import './input.styles.scss';
+
 const Input = ({label, labelStyle, inputStyle, ...inputAttributes}) => {
     const isLabelAnimated = inputAttributes.value.length && labelStyle === 'animated';
     

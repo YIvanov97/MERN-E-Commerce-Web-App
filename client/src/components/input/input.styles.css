@@ -1,0 +1,78 @@
+@font-face {
+  font-family: 'SF-Semibold';
+  src: url("../assets/fonts/SF-Semibold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'SF-Regular';
+  src: url("../assets/fonts/SF-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: 'SF-Light';
+  src: url("../assets/fonts/SF-Light.otf") format("opentype");
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.input-container .input {
+  width: 100%;
+  height: 30px;
+  position: relative;
+  font-size: 1rem;
+}
+
+.input-container .input:-webkit-autofill {
+  -webkit-background-clip: text;
+}
+
+.input-container .input:-webkit-autofill {
+  -webkit-text-fill-color: #d2d2d2 !important;
+}
+
+.input-container .input__underline {
+  border: 0;
+  margin: 20px 0;
+  border-bottom: 1px solid #FFFFFF;
+  z-index: 2;
+  background-color: transparent;
+  font-family: 'SF-Regular';
+  color: #d2d2d2;
+}
+
+.input-container .input:focus {
+  outline: none;
+}
+
+.input-container .input:focus ~ .label__animated {
+  top: 0;
+  left: 0;
+  color: #d2d2d2;
+  font-size: 0.8rem;
+  font-family: 'SF-Semibold';
+}
+
+.input-container .label {
+  font-size: 1rem;
+}
+
+.input-container .label__animated {
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  color: #9f9f9f;
+  left: 10px;
+  transition: 300ms ease all;
+  font-family: 'SF-Regular';
+}
+
+.input-container .label.animate {
+  top: 0;
+  left: 0;
+  color: #d2d2d2;
+  font-size: 0.8rem;
+  font-family: 'SF-Semibold';
+}

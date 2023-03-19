@@ -1,5 +1,7 @@
 .navigation {
   display: flex;
   justify-content: space-between;
-  height: auto;
+  height: 50px;
+  align-items: center;
+  background-color: #FFFFFF;
 }
