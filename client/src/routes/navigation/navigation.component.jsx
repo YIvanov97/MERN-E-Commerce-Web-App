@@ -1,23 +1,38 @@
-import { Fragment } from "react"
+import { Fragment, useContext } from "react"
 import { Link, Outlet } from "react-router-dom"
-import './navigation.styles.scss'
+import { UserContext } from "../../contexts/user.context"
+import { StyledNavLink } from "../../styles/global"
+import { NavigationContainer } from './navigation.styles'
 
 const Navigation = () => {
+    const { user, setUser } = useContext(UserContext)
+
+    const handleSignOut = async () => {
+        setUser({})
+        return await fetch('https://localhost:4000/v1/auth/logout')
+    }
+    
     return (
         <Fragment>
-            <div className="navigation container--full">
+            <NavigationContainer className="container--full">
                 <div className="navigation__logo-container">
 
                 </div>
                 <div className="navigation__links-container">
-                    <Link className="link link__nav" to='/'>Home</Link>
-                    <Link className="link link__nav" to='/shop'>Shop</Link>
-                    <Link className="link link__nav" to='/about'>About</Link>
-                    <Link className="link link__nav" to='/contacts'>Contacts</Link>
-                    <Link className="link link__nav" to='/profile'>Profile</Link>
-                    <Link className="link link__nav" to='/auth'>Login</Link>
+                    <StyledNavLink as={Link} to='/'>Home</StyledNavLink>
+                    <StyledNavLink as={Link} className="link link__nav" to='/shop'>Shop</StyledNavLink>
+                    <StyledNavLink as={Link} className="link link__nav" to='/about'>About</StyledNavLink>
+                    <StyledNavLink as={Link} className="link link__nav" to='/contacts'>Contacts</StyledNavLink>
+                    {user.email ? (
+                        <Fragment>
+                            <StyledNavLink as={Link} className="link link__nav" to='/profile'>Profile</StyledNavLink>
+                            <StyledNavLink as={'a'} className="link link__nav" onClick={handleSignOut}>Logout</StyledNavLink>
+                        </Fragment>
+                    ) : (
+                        <StyledNavLink as={Link} className="link link__nav" to='/auth'>Login</StyledNavLink>
+                    )}
                 </div>
-            </div>
+            </NavigationContainer>
             <Outlet />
         </Fragment>
     )

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FormContext } from "../../contexts/form.context";
-import Button from "../button/button.component";
+import Button, { BUTTON_COLORS, BUTTON_TYPES } from "../button/button.component";
 import Input from "../input/input.component";
 import './sign-up.styles.scss'
 
@@ -56,12 +56,57 @@ const SignUp = ({title}) => {
         <div className={`signup__container page__container--half ${currentForm ? 'signup--show' : ''}`}>
             <h1>{title}</h1>
             <form onSubmit={handleSubmit} className="form container--full">
-                <Input onChange={handleChange} label={'First Name'} labelStyle={'animated'} inputStyle={'underline'} type="text" name="firstName" required value={firstName}/>
-                <Input onChange={handleChange} label={'Last Name'} labelStyle={'animated'} inputStyle={'underline'} type="text" name="lastName" required value={lastName}/>
-                <Input onChange={handleChange} label={'Username'} labelStyle={'animated'} inputStyle={'underline'} type="text" name="userName" required value={userName}/>
-                <Input onChange={handleChange} label={'Email'} labelStyle={'animated'} inputStyle={'underline'} type="email" name="email" required value={email}/>
-                <Input onChange={handleChange} label={'Password'} labelStyle={'animated'} inputStyle={'underline'} type="password" name="password" required value={password}/>
-                <Button label={'Register'} type={'submit'} buttonStyle={'round--md'}/>
+                <Input 
+                    onChange={handleChange} 
+                    label={'First Name'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="text" 
+                    name="firstName" 
+                    required 
+                    value={firstName}
+                />
+                <Input 
+                    onChange={handleChange} 
+                    label={'Last Name'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="text" 
+                    name="lastName" 
+                    required 
+                    value={lastName}
+                />
+                <Input 
+                    onChange={handleChange} 
+                    label={'Username'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="text" 
+                    name="userName" 
+                    required 
+                    value={userName}
+                />
+                <Input 
+                    onChange={handleChange} 
+                    label={'Email'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="email" 
+                    name="email" 
+                    required 
+                    value={email}
+                />
+                <Input 
+                    onChange={handleChange} 
+                    label={'Password'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="password" 
+                    name="password" 
+                    required 
+                    value={password}
+                />
+                <Button label={'Register'} type={'submit'} buttonStyle={`${BUTTON_TYPES.roundMd}`} buttonColors={BUTTON_COLORS.auth}/>
             </form>
         </div>
     )

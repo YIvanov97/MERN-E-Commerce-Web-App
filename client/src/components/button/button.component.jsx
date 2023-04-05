@@ -1,8 +1,29 @@
-import './button.styles.scss';
+import './button.styles';
+import { DefaultButton, RoundMdButton, RoundSmButton } from './button.styles';
 
-const Button = ({label, type, buttonStyle, ...buttonAttributes}) => {
+export const BUTTON_TYPES = {
+    default: 'default',
+    roundMd: 'round-md',
+    roundSm: 'round-sm'
+}
+
+export const BUTTON_COLORS = {
+    auth: 'auth',
+    shop: 'shop'
+}
+
+const getButtonType = (buttonStyle = BUTTON_TYPES.default) => {
+    return ({
+        [BUTTON_TYPES.default]: DefaultButton,
+        [BUTTON_TYPES.roundMd]: RoundMdButton,
+        [BUTTON_TYPES.roundSm]: RoundSmButton
+    }[buttonStyle])
+}
+
+const Button = ({label, type, buttonStyle, buttonColors, ...buttonAttributes}) => {
+    const CustomButton = getButtonType(buttonStyle)
     return(
-        <button className={`button button__${buttonStyle}`} type={type} {...buttonAttributes}>{label}</button>
+        <CustomButton className={`button__${buttonStyle}`} type={type} buttonColors={buttonColors} {...buttonAttributes}>{label}</CustomButton>
     )
 }
 

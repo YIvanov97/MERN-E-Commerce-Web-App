@@ -1,10 +1,10 @@
-import './footer.styles.scss';
+import { StyledFooter } from './footer.styles';
 
 const Footer = () => {
     return (
-        <div className="footer container--full">
+        <StyledFooter>
             <p>Footer</p>
-        </div>
+        </StyledFooter>
     )
 }
 

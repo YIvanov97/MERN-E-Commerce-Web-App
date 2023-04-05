@@ -1,13 +1,13 @@
-import './input.styles.scss';
+import { AnimatedInputContainer, AnimatedInputLabel } from './input.styles';
 
 const Input = ({label, labelStyle, inputStyle, ...inputAttributes}) => {
     const isLabelAnimated = inputAttributes.value.length && labelStyle === 'animated';
     
     return(
-        <div className="input-container">
+        <AnimatedInputContainer>
             <input className={`input input__${inputStyle}`} name={label} {...inputAttributes} />
-            <label className={`label label__${labelStyle} ${isLabelAnimated ? 'animate' : ''}`} htmlFor={label}>{label}</label>
-        </div>
+            <AnimatedInputLabel animate={isLabelAnimated ? true : false} className={`label__${labelStyle}`} htmlFor={label}>{label}</AnimatedInputLabel>
+        </AnimatedInputContainer>
     )
 }
 

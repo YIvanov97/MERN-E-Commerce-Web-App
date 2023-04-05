@@ -1,18 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.bb7a9d4b.css",
-    "main.js": "/static/js/main.23fe390e.js",
+    "main.css": "/static/css/main.82ff2912.css",
+    "main.js": "/static/js/main.be4e860f.js",
     "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
     "static/media/SF-Semibold.otf": "/static/media/SF-Semibold.ee1672201df75878f69b.otf",
     "static/media/SF-Regular.otf": "/static/media/SF-Regular.2ecae33cadfb51556da5.otf",
     "static/media/SF-Light.otf": "/static/media/SF-Light.ff3e1aab377e03835855.otf",
+    "static/media/home-card-svg1.svg": "/static/media/home-card-svg1.debbfb5676be894d9951157e8c323f3e.svg",
+    "static/media/home-card-svg2.svg": "/static/media/home-card-svg2.824acbc4ee24c885dd4e2f8461fb13ea.svg",
+    "static/media/home-card-svg3.svg": "/static/media/home-card-svg3.5a206032c24524506031b1709574590b.svg",
+    "static/media/shop-banner-svg.svg": "/static/media/shop-banner-svg.4c73da9bca66bb16174408967849be78.svg",
+    "static/media/welcome-banner-svg.svg": "/static/media/welcome-banner-svg.682f2beececd6408b54db5bee5ddba4d.svg",
+    "static/media/classic-banner-revert-svg.svg": "/static/media/classic-banner-revert-svg.c390d2def640dd08a9d795e9658f9647.svg",
     "index.html": "/index.html",
-    "main.bb7a9d4b.css.map": "/static/css/main.bb7a9d4b.css.map",
-    "main.23fe390e.js.map": "/static/js/main.23fe390e.js.map",
+    "main.82ff2912.css.map": "/static/css/main.82ff2912.css.map",
+    "main.be4e860f.js.map": "/static/js/main.be4e860f.js.map",
     "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bb7a9d4b.css",
-    "static/js/main.23fe390e.js"
+    "static/css/main.82ff2912.css",
+    "static/js/main.be4e860f.js"
   ]
 }

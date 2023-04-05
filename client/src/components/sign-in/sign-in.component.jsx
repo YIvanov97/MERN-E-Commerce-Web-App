@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { FormContext } from "../../contexts/form.context";
 import { useNavigate } from "react-router-dom";
-import Button from "../button/button.component";
 import Input from "../input/input.component";
-import './sign-in.styles.scss'
+import { SignInCnontainer } from "./sign-in.styles";
 import { UserContext } from "../../contexts/user.context";
+import Button, {BUTTON_COLORS, BUTTON_TYPES} from "../button/button.component";
 
 const defaultFormFields = {
     email: '',
@@ -60,17 +60,44 @@ const SignIn = ({ title }) => {
     }
 
     return(
-        <div className="signin__container page__container--half">
+        <SignInCnontainer className="signin__container">
             <h1>{title}</h1>
             <form onSubmit={handleSubmit} className="form container--full">
-                <Input onChange={handleChange} label={'Email'} labelStyle={'animated'} inputStyle={'underline'} type="email" name="email" required value={email}/>
-                <Input onChange={handleChange} label={'Password'} labelStyle={'animated'} inputStyle={'underline'} type="password" name="password" required value={password}/>
+                <Input 
+                    onChange={handleChange} 
+                    label={'Email'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="email" name="email" 
+                    required 
+                    value={email}
+                />
+                <Input 
+                    onChange={handleChange} 
+                    label={'Password'} 
+                    labelStyle={'animated'} 
+                    inputStyle={'underline'} 
+                    type="password" name="password" 
+                    required 
+                    value={password}
+                />
                 <div className="buttons-container">
-                    <Button label={'Login'} type={'submit'} buttonStyle={'round--md'}/>
-                    <Button label={'Don\'t have an account ?'} type={'button'} buttonStyle={`round--md ${hideButton}`} onClick={showRegistration}/>
+                    <Button 
+                        label={'Login'} 
+                        type={'submit'} 
+                        buttonStyle={`${BUTTON_TYPES.roundMd}`}
+                        buttonColors={BUTTON_COLORS.auth}
+                    />
+                    <Button 
+                        label={'Don\'t have an account ?'} 
+                        type={'button'} 
+                        buttonStyle={`${BUTTON_TYPES.roundMd}`} 
+                        buttonColors={BUTTON_COLORS.auth}
+                        onClick={showRegistration}
+                    />
                 </div>
             </form>
-        </div>
+        </SignInCnontainer>
     )
 }
 

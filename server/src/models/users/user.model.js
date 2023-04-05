@@ -3,35 +3,24 @@ const bcrypt = require('bcryptjs')
 const usersCollection = require('./user.mongo')
 
 const userRegister = async (user) => {
-    const isUserExist = usersCollection.findOne({email: user.email})
-    // console.log(isUserExist);
-    // if(isUserExist) {
-    //     console.log('exist');
-    //     return;
-    // }
+    const isUserExist = await usersCollection.findOne({email: user.email})
+    
+    if(isUserExist) {
+        return;
+    }
 
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = bcrypt.hashSync(user.password, salt)
     
-    // await usersCollection.updateOne({
-    //     firstname: user.firstname,
-    //     lastname: user.lastname,
-    //     username: user.username,
-    //     email: user.email,
-    //     password: hashedPassword
-    // }, user, {
-    //     upsert: true
-    // })
-
-    const newUser = new usersCollection({
+    await usersCollection.updateOne({
         firstname: user.firstname,
         lastname: user.lastname,
         username: user.username,
         email: user.email,
         password: hashedPassword
+    }, user, {
+        upsert: true
     })
-
-    await newUser.save()
 }
 
 const userLogin = async (user) => {

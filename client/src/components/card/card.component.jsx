@@ -1,17 +1,35 @@
-import './card.styles.scss'
+import Button, { BUTTON_COLORS, BUTTON_TYPES } from '../button/button.component'
+import { RoundSmButton } from '../button/button.styles'
+import { BannerStyledCard, ShopStyledCard } from './card.styles'
 
-const Card = ({image, type, title, text}) => {
+export const BannerCard = ({image, type, title, text}) => {
     return (
-        <div className={type}>
-            <div className="banner__card__image-container">
+        <BannerStyledCard>
+            <div className="card__image-container">
                 <img src={image}/>
             </div>
-            <div className="banner__card__text-container">
+            <div className="card__text-container">
                 <h4>{title}</h4>
                 <p>{text}</p>
             </div>
-        </div>
+        </BannerStyledCard>
     )
 }
 
-export default Card;
+export const ShopCard = ({image, type, title, text}) => {
+    return (
+        <ShopStyledCard>
+            <div className="card__image-container">
+                <img src={image}/>
+            </div>
+            <div className="card__text-container">
+                <h4>{title}</h4>
+                <p>{text}</p>
+            </div>
+            <div className='card__buttons-container'>
+                <Button label={'Buy'} type={'button'} buttonStyle={BUTTON_TYPES.roundSm} buttonColors={BUTTON_COLORS.shop}/>
+                <Button label={'About'} type={'button'} buttonStyle={BUTTON_TYPES.roundSm} buttonColors={BUTTON_COLORS.shop}/>
+            </div>
+        </ShopStyledCard>
+    )
+}

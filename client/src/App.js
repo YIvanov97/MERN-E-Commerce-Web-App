@@ -3,6 +3,7 @@ import { FormProvider } from "./contexts/form.context";
 import Authentication from "./routes/authentication/authentication.component";
 import HomePage from "./routes/home/home-page.component";
 import Navigation from "./routes/navigation/navigation.component";
+import ShopPage from "./routes/shop/shop.component";
 
 const App = () => {
     return (
@@ -14,6 +15,7 @@ const App = () => {
                         <Authentication />
                     </FormProvider>
                 }/>
+                <Route path="shop" element={<ShopPage />}/>
             </Route>
         </Routes>
     );

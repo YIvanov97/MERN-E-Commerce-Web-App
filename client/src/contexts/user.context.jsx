@@ -1,16 +1,23 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 
-
-//This is the actual value, you want to access
 export const UserContext = createContext({
     user: {},
     setUser: () => {}
 })
 
-//This is the actual component
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState({})
     const value = { user, setUser }
+
+    // useEffect(() => {
+    //     const loggedInUser = async () => {
+    //         const fetchedUser = await fetch('https://localhost:4000/v1/auth/user')
+    //         const res = await fetchedUser.json()
+    //         setUser(res.user)
+    //     }
+        
+    //     return loggedInUser;
+    // }, [])
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }

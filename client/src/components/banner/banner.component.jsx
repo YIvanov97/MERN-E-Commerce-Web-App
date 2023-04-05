@@ -1,41 +1,35 @@
-import { Fragment } from 'react';
-import Card from '../card/card.component';
-import './banner.styles.scss';
-import FirstCardSvg from '../../assets/images/home-card-svg1.svg'
-import SecondCardSvg from '../../assets/images/home-card-svg2.svg'
-import ThirdCardSvg from '../../assets/images/home-card-svg3.svg'
+import { BannerCard } from '../card/card.component';
+import { ClassicBanner, CardsBanner } from './banner.styles';
+import { HalfContainer } from '../../styles/global';
 
-const Banner = ({id, type, title, text, image}) => {
-    const BannerType = () => {
-        if (type.includes('classic')) {
-            return (
-                <Fragment>
-                    <div className="banner__classic__image-container container--half">
-                        <img src={image} alt="classic-banner-svg"/>
-                    </div>
-                    <div className="banner__classic__text-container container--half">
-                        <div className="banner__classic__text-container--inner">
-                            <h3>{title}</h3>
-                            <p>{text}</p>
-                        </div>
-                    </div>
-                </Fragment>
-            )
-        } else if (type == 'cards') {
-            return (
-                <Fragment>
-                    <Card image={FirstCardSvg} type={'banner__card'} title={'Header'} text={'some text for card'}/>
-                    <Card image={SecondCardSvg} type={'banner__card'} title={'Header'} text={'some text for card'}/>
-                    <Card image={ThirdCardSvg} type={'banner__card'} title={'Header'} text={'some text for card'}/>
-                </Fragment>
-            )
-        }
-    }
+export const BannerClassic = ({id, type, ...bannerProps}) => {
     return(
-        <div id={id} className={`banner banner__${type} container--full`}>
-            <BannerType />
-        </div>
+        <ClassicBanner id={id} className={`${type}`} margin={bannerProps.margin}>
+            <HalfContainer className="classic__image-container">
+                <img src={bannerProps.image} alt="classic-banner-svg"/>
+            </HalfContainer>
+            <HalfContainer className="classic__text-container">
+                <div className="classic__text-container--inner">
+                    <h3>{bannerProps.title}</h3>
+                    <p>{bannerProps.text}</p>
+                </div>
+            </HalfContainer>
+        </ClassicBanner>
     )
 }
 
-export default Banner;
+export const BannerCards = ({id, type, ...cardsProps}) => {
+    const Cards = () => {
+        let cardsArr = []
+        for (let i = 0; i < cardsProps.cardsLength; i++) {
+            cardsArr.push(<BannerCard image={cardsProps.images[i]} type={cardsProps.cardsType} title={cardsProps.cardsTitles[i]} text={cardsProps.cardsText[i]}/>)
+        }
+        return cardsArr;
+    }
+
+    return (
+        <CardsBanner id={id} className={`${type}`} margin={cardsProps.margin}>
+            <Cards />
+        </CardsBanner>
+    )
+}
